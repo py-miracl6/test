@@ -3,7 +3,10 @@ import streamlit_authenticator as stauth
 import yaml
 from yaml.loader import SafeLoader
 from send_email import *
+from python_func import *
 
+
+hide_part_of_page()
 
 with open("config.yaml") as file:
     config = yaml.load(file, Loader=SafeLoader)
@@ -34,7 +37,7 @@ if st.session_state["authentication_status"]:
         except Exception as e:
             st.error(e)
     if col2.button("Скрыть"):
-        st.write('')
+        st.write("")
 elif st.session_state["authentication_status"] is False:
     st.error("Username/password is incorrect")
     try:

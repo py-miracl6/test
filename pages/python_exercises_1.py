@@ -1,6 +1,7 @@
 import streamlit as st
 from streamlit_ace import st_ace
 from python_func import *
+
 # from pylint import epylint as lint
 
 hide_part_of_page()
@@ -26,7 +27,7 @@ if st.session_state["authentication_status"]:
         "- Создайте переменную **result** и запишите в нее выражение, используя ранее объявленные переменные **x**, **y**, арифметические операторы, числа/цифры, так, чтобы по итогу значение в **result** было равно **8.75**\n"
         "Например:"
     )
-    st.code('result = x * 2 - 2 * y / 2', language='python')
+    st.code("result = x * 2 - 2 * y / 2", language="python")
 
     loc = {}
     content = st_ace(
@@ -55,16 +56,18 @@ if st.session_state["authentication_status"]:
             # st.write(pylint_stderr.getvalue())
             # exec(content, globals(), loc)
             try:
-                assert 'x' in loc.keys(), "Проверьте название переменной x"
+                assert "x" in loc.keys(), "Проверьте название переменной x"
                 assert loc["x"] == x_check, "Проверьте значение в переменной x"
-                assert 'y' in loc.keys(), "Проверьте название переменной y"
+                assert "y" in loc.keys(), "Проверьте название переменной y"
                 assert loc["y"] == y_check, "Проверьте значение в переменной y"
-                assert 'result' in loc.keys(), "Проверьте название переменной result"
-                assert loc["result"] == result_check, "Проверьте значение в переменной result"
+                assert "result" in loc.keys(), "Проверьте название переменной result"
+                assert (
+                    loc["result"] == result_check
+                ), "Проверьте значение в переменной result"
                 st.success("Все верно! Ключ = 51")
             except Exception as ex:
                 st.error(ex)
         except Exception as ex:
             st.error(ex)
 else:
-    st.error('Войдите в систему, либо введите верный пароль')
+    st.error("Войдите в систему, либо введите верный пароль")

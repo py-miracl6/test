@@ -55,30 +55,40 @@ if st.session_state["authentication_status"]:
             # exec(content, globals(), loc)
             try:
                 # value
-                assert 'value' in loc.keys(), "Проверьте название переменной value"
+                assert "value" in loc.keys(), "Проверьте название переменной value"
                 value = loc["value"]
-                assert isinstance(value, list), "Проверьте, что в переменной value список"
+                assert isinstance(
+                    value, list
+                ), "Проверьте, что в переменной value список"
                 assert value == value_check, "Проверьте значение в переменной value"
                 # value_1
-                assert 'value_1' in loc.keys(), "Проверьте название переменной value_1"
+                assert "value_1" in loc.keys(), "Проверьте название переменной value_1"
                 value_1 = loc["value_1"]
-                assert value_1 == value_1_check, "Проверьте значение в переменной value_1"
+                assert (
+                    value_1 == value_1_check
+                ), "Проверьте значение в переменной value_1"
                 # value_2
-                assert 'value_2' in loc.keys(), "Проверьте название переменной value_2"
+                assert "value_2" in loc.keys(), "Проверьте название переменной value_2"
                 value_2 = loc["value_2"]
-                assert value_2 == value_2_check, "Проверьте значение в переменной value_2"
+                assert (
+                    value_2 == value_2_check
+                ), "Проверьте значение в переменной value_2"
                 # value_3
-                assert 'value_3' in loc.keys(), "Проверьте название переменной value_3"
+                assert "value_3" in loc.keys(), "Проверьте название переменной value_3"
                 value_3 = loc["value_3"]
-                assert value_3 == value_3_check, "Проверьте значение в переменной value_3"
+                assert (
+                    value_3 == value_3_check
+                ), "Проверьте значение в переменной value_3"
                 # value_4
-                assert 'value_4' in loc.keys(), "Проверьте название переменной value_4"
+                assert "value_4" in loc.keys(), "Проверьте название переменной value_4"
                 value_4 = loc["value_4"]
-                assert value_4 == value_4_check, "Проверьте значение в переменной value_4"
+                assert (
+                    value_4 == value_4_check
+                ), "Проверьте значение в переменной value_4"
                 st.success("Все верно! Ключ = 15")
             except Exception as ex:
                 st.error(ex)
         except Exception as ex:
             st.error(ex)
 else:
-    st.error('Войдите в систему, либо введите верный пароль')
+    st.error("Войдите в систему, либо введите верный пароль")
